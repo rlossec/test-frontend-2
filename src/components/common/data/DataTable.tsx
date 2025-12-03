@@ -14,6 +14,8 @@ export interface Column<T extends object> {
   render?: (item: T) => ReactNode;
   sortable?: boolean;
   width?: string;
+  uppercase?: boolean;
+  emptyValue?: string | ReactNode;
 }
 
 export interface ActionItem<T extends object> {
@@ -149,6 +151,37 @@ export function DataTable<T extends object>({
     }));
   };
 
+  // Fonction utilitaire pour formater la valeur d'une cellule
+  const formatCellValue = (column: Column<T>, item: T): ReactNode => {
+    const value = item[column.key];
+
+    // Vérifier si la valeur est vide/null/undefined
+    const isEmpty =
+      value === null ||
+      value === undefined ||
+      value === "" ||
+      (typeof value === "number" && isNaN(value));
+
+    if (isEmpty) {
+      return column.emptyValue ?? "-";
+    }
+
+    // Si un render personnalisé est fourni, l'utiliser
+    if (column.render) {
+      return column.render(item);
+    }
+
+    // Sinon, formater la valeur
+    let formattedValue = String(value);
+
+    // Appliquer la capitalisation si demandée
+    if (column.uppercase) {
+      formattedValue = formattedValue.toUpperCase();
+    }
+
+    return formattedValue;
+  };
+
   return (
     <div className={`w-full ${className}`}>
       <div className="overflow-x-auto">
@@ -200,7 +233,10 @@ export function DataTable<T extends object>({
             {paginatedData.map((item) => {
               const id = keyExtractor(item);
               return (
-                <tr key={id} className="">
+                <tr
+                  key={id}
+                  className="hover:bg-background transition-colors duration-150"
+                >
                   {selectable && (
                     <td className="px-6 py-4 whitespace-nowrap">
                       <input
@@ -216,9 +252,7 @@ export function DataTable<T extends object>({
                       key={String(column.key)}
                       className="px-6 py-4 whitespace-nowrap text-sm text-text-dark"
                     >
-                      {column.render
-                        ? column.render(item)
-                        : String(item[column.key])}
+                      {formatCellValue(column, item)}
                     </td>
                   ))}
                   {actions && actions.length > 0 && (

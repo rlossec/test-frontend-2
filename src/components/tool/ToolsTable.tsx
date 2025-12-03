@@ -1,14 +1,32 @@
 import { DataTable } from "../common/data/DataTable";
-import type { Tool } from "../../types/entities";
+import { StatusBadge, type StatusVariant } from "./StatusBadge";
+
+import type { Tool, ToolStatus } from "../../types/entities";
+import { DisplayToolIcon } from "./DisplayToolIcon";
 
 interface ToolsTableProps {
   tools: Tool[];
 }
 
+const statusVariantMap: Record<ToolStatus, StatusVariant> = {
+  active: "success",
+  expiring: "warning",
+  unused: "error",
+};
+
 export const ToolsTable = ({ tools }: ToolsTableProps) => {
   const columns = [
-    { header: "Id", key: "id" as const, sortable: true },
-    { header: "Name", key: "name" as const, sortable: true },
+    {
+      header: "Name",
+      key: "name" as const,
+      sortable: true,
+      render: (item: Tool) => (
+        <div className="flex items-center gap-2">
+          <DisplayToolIcon iconUrl={item.icon_url} toolName={item.name} />
+          <span>{item.name || "-"}</span>
+        </div>
+      ),
+    },
     {
       header: "Department",
       key: "owner_department" as const,
@@ -23,9 +41,23 @@ export const ToolsTable = ({ tools }: ToolsTableProps) => {
       header: "Monthly Cost",
       key: "monthly_cost" as const,
       sortable: true,
-      render: (item: Tool) => `€${item.monthly_cost.toLocaleString()}`,
+      render: (item: Tool) =>
+        item.monthly_cost != null
+          ? `€${item.monthly_cost.toLocaleString()}`
+          : "-",
     },
-    { header: "Status", key: "status" as const, sortable: true },
+    {
+      header: "Status",
+      key: "status" as const,
+      sortable: true,
+      render: (item: Tool) => {
+        if (!item.status) {
+          return "-";
+        }
+        const variant = statusVariantMap[item.status] || "default";
+        return <StatusBadge status={item.status} variant={variant} />;
+      },
+    },
   ];
 
   return (
