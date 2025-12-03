@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 
-export const NavBar = () => {
+interface NavBarProps {
+  className?: string;
+}
+
+export const NavBar = ({ className = "" }: NavBarProps) => {
   const baseClass = "text-text-light hover:text-text transition-colors";
   const activeClass = "text-primary font-semibold";
 
@@ -12,7 +16,7 @@ export const NavBar = () => {
   ];
 
   return (
-    <nav className="flex md:flex-row flex-col gap-8">
+    <nav className={`flex md:flex-row flex-col gap-8 ${className}`}>
       {links.map(({ to, label }) => (
         <NavLink
           key={to}

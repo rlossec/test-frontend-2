@@ -16,7 +16,7 @@ export const ThemeToggle = () => {
         )
       }
       onClick={toggleTheme}
-      className="p-2 rounded-lg hover:bg-background-alt transition-colors text-text-light"
+      className="p-2 rounded-lg hover:bg-background-alt transition-colors text-text-light cursor-pointer"
       aria-label={`Basculer vers le thème ${
         theme === "light" ? "sombre" : "clair"
       }`}
