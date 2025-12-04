@@ -71,6 +71,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 
     // Taille
     const sizeStyles = {
+      xs: "p-1 text-xs gap-0.5 min-h-[24px] min-w-[24px]",
       sm: "px-2 py-1 text-sm gap-1 min-h-[32px]",
       md: "px-3 py-2 text-base gap-2 min-h-[40px]",
       lg: "px-4 py-2.5 text-lg gap-3 min-h-[48px]",

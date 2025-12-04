@@ -1,7 +1,7 @@
 import React from "react";
 
 export type ButtonVariant = "solid" | "outline" | "ghost";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "xs" | "sm" | "md" | "lg";
 export type ButtonColor =
   | "primary"
   | "success"
@@ -73,6 +73,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Styles de taille
     const sizeStyles = {
+      xs: "py-1 px-2 text-xs min-h-[24px] gap-1",
       sm: "py-1.5 px-3 text-sm min-h-[32px] gap-1.5",
       md: "py-2 px-4 text-base min-h-[40px] gap-2",
       lg: "py-2.5 px-5 text-lg min-h-[48px] gap-2.5",

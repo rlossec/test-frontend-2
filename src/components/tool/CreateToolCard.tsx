@@ -17,9 +17,9 @@ export const CreateToolCard = () => {
         <PlusIcon className="w-8 h-8" />
       </div>
       <div className="text-center">
-        <h3 className="text-lg font-semibold">Créer un nouvel outil</h3>
+        <h3 className="text-lg font-semibold">Create a new tool</h3>
         <p className="text-sm text-text-light mt-1">
-          Ajoutez un nouvel outil à votre catalogue
+          Add a new tool to your catalog
         </p>
       </div>
     </button>

@@ -1,8 +1,8 @@
 import { Icon } from "../Icon";
 
-export const ExternalLinkIcon = () => {
+export const ExternalLinkIcon = ({ className = "", ...props }) => {
   return (
-    <Icon>
+    <Icon className={className} {...props}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

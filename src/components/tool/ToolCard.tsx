@@ -44,16 +44,16 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
   };
 
   return (
-    <div className="bg-background rounded-lg shadow-md p-4 flex flex-col h-full">
+    <div className="bg-background rounded-lg shadow-md p-6 flex flex-col h-full">
       {/* Tool Title section */}
-      <div className="flex justify-between items-start mb-3">
-        <div className="flex items-center gap-3 flex-1 min-w-0">
+      <div className="flex justify-between items-start mb-5">
+        <div className="flex items-center gap-5 flex-1 min-w-0">
           <ToolIconProtected src={tool.icon_url} alt={tool.name} />
           <div className="flex-1 min-w-0">
-            <h2 className="text-lg font-semibold text-text-light truncate">
+            <h2 className="text-lg font-semibold text-text-light truncate mb-3">
               {tool.name}
             </h2>
-            <div className="mt-1">
+            <div>
               <Badge size="sm" variant="default">
                 {tool.category}
               </Badge>
@@ -61,37 +61,40 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
           </div>
         </div>
         {/* Quick actions */}
-        <div className="flex gap-1 ml-2 shrink-0">
+        <div className="flex gap-2 ml-4 shrink-0">
           <IconButton
-            icon={<EyeIcon />}
+            icon={<EyeIcon size={16} />}
             ariaLabel="View details"
             onClick={handleViewDetails}
-            size="sm"
+            size="xs"
             variant="ghost"
+            color="success"
           />
           <IconButton
-            icon={<PencilIcon />}
+            icon={<PencilIcon size={16} />}
             ariaLabel="Edit"
             onClick={handleEdit}
-            size="sm"
+            size="xs"
             variant="ghost"
+            color="warning"
           />
           {tool.website_url ? (
             <IconButton
               variant="ghost"
-              icon={<ExternalLinkIcon />}
+              icon={<ExternalLinkIcon size={16} />}
               ariaLabel="Open website"
               onClick={() => {
                 window.open(tool.website_url, "_blank");
               }}
-              size="sm"
+              size="xs"
+              color="primary"
             />
           ) : null}
           <IconButton
-            icon={<TrashIcon />}
+            icon={<TrashIcon size={16} />}
             ariaLabel="Delete"
             onClick={handleDeleteClick}
-            size="sm"
+            size="xs"
             variant="ghost"
             color="error"
           />
@@ -99,27 +102,30 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
       </div>
 
       {/* Tool Info section */}
-      <div className="mb-4 flex-1">
-        <p className="text-sm text-text-light line-clamp-2">
+      <div className="mb-6 flex-1">
+        <p className="text-sm text-text-light line-clamp-2 leading-relaxed">
           {tool.description}
         </p>
       </div>
 
       {/* Badges section - réorganisée de manière plus propre */}
-      <div className="flex flex-col gap-2 mt-auto pt-2 border-t border-border">
+      <div className="flex flex-col gap-4 mt-auto pt-5 border-t border-border">
         {/* Ligne 1 : Statut et Coût */}
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex items-center justify-between gap-4">
           <StatusBadge status={tool.status} />
           <Badge size="sm" variant="default">
-            {tool.monthly_cost ? tool.monthly_cost.toLocaleString() : 0}€/mois
+            {tool.monthly_cost ? tool.monthly_cost.toLocaleString() : 0}€/month
           </Badge>
         </div>
 
         {/* Ligne 2 : Utilisateurs, Département et Date */}
-        <div className="flex items-center gap-2 flex-wrap text-xs text-text-light">
+        <div className="flex items-center gap-3 flex-wrap text-xs text-text-light">
           <span>
-            {tool.active_users_count} utilisateur
-            {tool.active_users_count > 1 ? "s" : ""}
+            {tool.active_users_count === 0
+              ? "No user"
+              : `${tool.active_users_count} user${
+                  tool.active_users_count > 1 ? "s" : ""
+                }`}
           </span>
           <span>•</span>
           <span>{tool.owner_department}</span>

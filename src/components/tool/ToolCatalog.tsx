@@ -21,9 +21,7 @@ export const ToolCatalog = ({ tools }: ToolCatalogProps) => {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-text-light">
-          Catalogue d'outils
-        </h1>
+        <h1 className="text-2xl font-bold text-text-light">Tool Catalog</h1>
         <span className="text-sm text-text-light">
           {tools.length} outil{tools.length > 1 ? "s" : ""}
         </span>
@@ -38,7 +36,7 @@ export const ToolCatalog = ({ tools }: ToolCatalogProps) => {
           className="w-full md:w-auto"
         >
           <PlusIcon className="w-4 h-4 mr-2" />
-          Ajouter un outil
+          Add a tool
         </Button>
       </div>
 
