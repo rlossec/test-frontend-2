@@ -31,4 +31,8 @@ export const toolsService = {
   async update(id: number, data: UpdateToolForm): Promise<Tool> {
     return apiClient.put<Tool>(`${API_ENDPOINTS.tools}/${id}`, data);
   },
+
+  async delete(id: number): Promise<void> {
+    return apiClient.delete<void>(`${API_ENDPOINTS.tools}/${id}`);
+  },
 };
