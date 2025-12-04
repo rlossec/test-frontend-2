@@ -18,3 +18,12 @@ export interface ApiError {
   status?: number;
   code?: string;
 }
+
+// Types pour les graphiques
+export interface ChartDataItem {
+  name: string;
+  value: number;
+  percentage: number;
+  toolsCount: number;
+  usersCount: number;
+}
