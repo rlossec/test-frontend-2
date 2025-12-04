@@ -8,8 +8,8 @@ export const MostLeastUsedTools = () => {
         Most/Least Used Tools
       </h3>
       <ChartPlaceholder
-        title="Les outils les plus et moins utilisés seront affichés ici"
-        content="Graphique comparatif à venir"
+        title="Most/Least used tools will be displayed here"
+        content="Comparative graph will be displayed here"
       />
     </Paper>
   );

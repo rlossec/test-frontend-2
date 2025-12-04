@@ -6,8 +6,8 @@ export const GrowthTrends = () => {
     <Paper className="flex flex-col gap-4">
       <h3 className="text-md font-semibold text-text-light">Growth Trends</h3>
       <ChartPlaceholder
-        title="Les tendances de croissance seront affichées ici"
-        content="Graphique d'évolution temporelle à venir"
+        title="Growth trends will be displayed here"
+        content="Time evolution graph will be displayed here"
       />
     </Paper>
   );

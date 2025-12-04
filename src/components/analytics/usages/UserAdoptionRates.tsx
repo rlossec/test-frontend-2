@@ -8,8 +8,8 @@ export const UserAdoptionRates = () => {
         User Adoption Rates
       </h3>
       <ChartPlaceholder
-        title="Les taux d'adoption des utilisateurs seront affichés ici"
-        content="Graphique de taux d'adoption à venir"
+        title="User adoption rates will be displayed here"
+        content="User adoption rate graph will be displayed here"
       />
     </Paper>
   );

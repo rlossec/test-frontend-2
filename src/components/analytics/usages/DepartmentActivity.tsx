@@ -8,8 +8,8 @@ export const DepartmentActivity = () => {
         Department Activity
       </h3>
       <ChartPlaceholder
-        title="L'activité des départements sera affichée ici"
-        content="Graphique d'activité par département à venir"
+        title="Department activity will be displayed here"
+        content="Department activity graph will be displayed here"
       />
     </Paper>
   );

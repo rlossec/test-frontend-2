@@ -12,8 +12,8 @@ export const UsagePatterns = () => {
         </h3>
       </div>
       <ChartPlaceholder
-        title="Les patterns d'utilisation seront affichés ici"
-        content="Heatmaps et sparklines à venir"
+        title="Usage patterns will be displayed here"
+        content="Heatmaps and sparklines will be displayed here"
       />
     </Paper>
   );

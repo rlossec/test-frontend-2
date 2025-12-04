@@ -22,13 +22,13 @@ export const DepartmentCostTooltip = ({
           {data.name}
         </p>
         <p className="text-xs text-text-light/80 mb-1">
-          Coût: {formatCurrency(data.value)}
+          Cost: {formatCurrency(data.value)}
         </p>
         <p className="text-xs text-text-light/80 mb-1">
-          Pourcentage: {data.percentage.toFixed(1)}%
+          Percentage: {data.percentage.toFixed(1)}%
         </p>
         <p className="text-xs text-text-light/80">
-          {data.toolsCount} outils • {data.usersCount} utilisateurs
+          {data.toolsCount} tools • {data.usersCount} users
         </p>
       </div>
     );

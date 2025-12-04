@@ -95,8 +95,8 @@ export const TopExpensiveTools = ({ tools }: { tools: ExpensiveTool[] }) => {
         </div>
       ) : (
         <ChartPlaceholder
-          title="Aucun outil coûteux trouvé"
-          content="Les données seront affichées lorsqu'elles seront disponibles"
+          title="No expensive tools found"
+          content="Data will be displayed when available"
         />
       )}
     </Paper>

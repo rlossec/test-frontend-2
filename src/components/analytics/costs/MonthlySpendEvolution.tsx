@@ -27,13 +27,13 @@ export const MonthlySpendEvolution = ({
   const chartData = [
     {
       month: previousMonthName,
-      dépenses: budgetOverview.previous_month_total,
-      limite: budgetOverview.monthly_limit,
+      spends: budgetOverview.previous_month_total,
+      limit: budgetOverview.monthly_limit,
     },
     {
       month: currentMonth,
-      dépenses: budgetOverview.current_month_total,
-      limite: budgetOverview.monthly_limit,
+      spends: budgetOverview.current_month_total,
+      limit: budgetOverview.monthly_limit,
     },
   ];
 
@@ -85,20 +85,20 @@ export const MonthlySpendEvolution = ({
             />
             <Line
               type="monotone"
-              dataKey="limite"
+              dataKey="limit"
               stroke={CHART_COLORS[5]}
               strokeWidth={2}
               strokeDasharray="5 5"
               dot={{ r: 4 }}
-              name="Limite budgétaire"
+              name="Budget limit"
             />
             <Line
               type="monotone"
-              dataKey="dépenses"
+              dataKey="spends"
               stroke={CHART_COLORS[0]}
               strokeWidth={3}
               dot={{ r: 5, fill: CHART_COLORS[0] }}
-              name="Dépenses"
+              name="Spends"
             />
           </LineChart>
         </ResponsiveContainer>
@@ -108,14 +108,14 @@ export const MonthlySpendEvolution = ({
               className="w-3 h-3 rounded-full"
               style={{ backgroundColor: CHART_COLORS[0] }}
             ></div>
-            <span className="text-text-light/70">Dépenses</span>
+            <span className="text-text-light/70">Spends</span>
           </div>
           <div className="flex items-center gap-2">
             <div
               className="w-3 h-0.5 border-t-2 border-dashed"
               style={{ borderColor: CHART_COLORS[5] }}
             ></div>
-            <span className="text-text-light/70">Limite budgétaire</span>
+            <span className="text-text-light/70">Budget limit</span>
           </div>
         </div>
       </div>
